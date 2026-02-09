@@ -1,0 +1,103 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:SureVibe.App.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="1100" d:DesignHeight="700"
+        x:Class="SureVibe.App.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Title="SureVibe"
+        Width="1100" Height="700"
+        MinWidth="800" MinHeight="500">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+    <Grid ColumnDefinitions="*,Auto,*" Margin="16">
+
+        <!-- LEFT: Input fields -->
+        <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto">
+            <StackPanel Spacing="8" Margin="0,0,8,0">
+                <TextBlock Text="Goal" FontWeight="SemiBold"/>
+                <TextBox Watermark="What should the agent accomplish?"
+                         Text="{Binding Goal}"
+                         Name="GoalInput"/>
+
+                <TextBlock Text="Scope" FontWeight="SemiBold" Margin="0,8,0,0"/>
+                <TextBox Watermark="What is in scope?"
+                         Text="{Binding Scope}"
+                         AcceptsReturn="True" MinHeight="60"
+                         TextWrapping="Wrap"/>
+
+                <TextBlock Text="Repo Layout" FontWeight="SemiBold" Margin="0,8,0,0"/>
+                <TextBox Watermark="Describe the repository structure"
+                         Text="{Binding RepoLayout}"
+                         AcceptsReturn="True" MinHeight="60"
+                         TextWrapping="Wrap"/>
+
+                <TextBlock Text="Constraints" FontWeight="SemiBold" Margin="0,8,0,0"/>
+                <TextBox Watermark="Any constraints or rules"
+                         Text="{Binding Constraints}"
+                         AcceptsReturn="True" MinHeight="60"
+                         TextWrapping="Wrap"/>
+
+                <TextBlock Text="Tasks (one per line)" FontWeight="SemiBold" Margin="0,8,0,0"/>
+                <TextBox Watermark="Task 1&#x0a;Task 2&#x0a;# comments ignored"
+                         Text="{Binding TasksText}"
+                         AcceptsReturn="True" MinHeight="80"
+                         TextWrapping="Wrap"/>
+
+                <TextBlock Text="Acceptance Tests (one per line)" FontWeight="SemiBold" Margin="0,8,0,0"/>
+                <TextBox Watermark="Test condition 1&#x0a;Test condition 2"
+                         Text="{Binding AcceptanceTestsText}"
+                         AcceptsReturn="True" MinHeight="60"
+                         TextWrapping="Wrap"/>
+
+                <TextBlock Text="Evidence Required (one per line)" FontWeight="SemiBold" Margin="0,8,0,0"/>
+                <TextBox Watermark="Screenshot&#x0a;Log output"
+                         Text="{Binding EvidenceRequiredText}"
+                         AcceptsReturn="True" MinHeight="60"
+                         TextWrapping="Wrap"/>
+
+                <TextBlock Text="Forbidden (one per line)" FontWeight="SemiBold" Margin="0,8,0,0"/>
+                <TextBox Watermark="No network calls&#x0a;No AI inference"
+                         Text="{Binding ForbiddenText}"
+                         AcceptsReturn="True" MinHeight="60"
+                         TextWrapping="Wrap"/>
+            </StackPanel>
+        </ScrollViewer>
+
+        <!-- CENTER: Compile button -->
+        <Button Grid.Column="1"
+                Content="Compile &#x2192;"
+                Command="{Binding CompileCommand}"
+                VerticalAlignment="Center"
+                FontSize="18" FontWeight="Bold"
+                Padding="20,16"
+                Margin="8"/>
+
+        <!-- RIGHT: Output -->
+        <DockPanel Grid.Column="2" Margin="8,0,0,0">
+            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Spacing="12" Margin="0,0,0,8">
+                <TextBlock Text="Format:" VerticalAlignment="Center" FontWeight="SemiBold"/>
+                <RadioButton Content="JSON"
+                             IsChecked="{Binding !UseYaml}"
+                             GroupName="Format"/>
+                <RadioButton Content="YAML"
+                             IsChecked="{Binding UseYaml}"
+                             GroupName="Format"/>
+                <Button Content="Copy"
+                        Command="{Binding CopyOutputCommand}"
+                        VerticalAlignment="Center"/>
+            </StackPanel>
+            <TextBox Text="{Binding Output}"
+                     IsReadOnly="True"
+                     AcceptsReturn="True"
+                     TextWrapping="Wrap"
+                     FontFamily="Cascadia Mono, Consolas, Menlo, monospace"
+                     FontSize="13"/>
+        </DockPanel>
+
+    </Grid>
+</Window>

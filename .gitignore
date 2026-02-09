@@ -1,0 +1,44 @@
+# =========================
+# .NET / Avalonia
+# =========================
+bin/
+obj/
+.vs/
+.idea/
+*.user
+*.suo
+*.cache
+*.log
+*.DotSettings.user
+
+# =========================
+# OS / Editor noise
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Claude / AI tooling
+# =========================
+.claude/
+.claude-cache/
+.ai/
+.ai-cache/
+prompts/
+scratch/
+tmp/
+out/
+
+# =========================
+# Build artifacts
+# =========================
+*.nupkg
+*.snupkg
+artifacts/
+
+# =========================
+# Local configs
+# =========================
+.env
+.env.*
+local.settings.json
