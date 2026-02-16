@@ -2,14 +2,75 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              x:Class="SureVibe.App.App"
              xmlns:local="using:SureVibe.App"
-             RequestedThemeVariant="Default">
-             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+             RequestedThemeVariant="Dark">
 
     <Application.DataTemplates>
         <local:ViewLocator/>
     </Application.DataTemplates>
-  
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <!-- Accent color system -->
+            <Color x:Key="SystemAccentColor">#4DA3FF</Color>
+            <Color x:Key="SystemAccentColorDark1">#4DA3FF</Color>
+            <Color x:Key="SystemAccentColorDark2">#3B8FE6</Color>
+            <Color x:Key="SystemAccentColorDark3">#2A7ACC</Color>
+            <Color x:Key="SystemAccentColorLight1">#6BB3FF</Color>
+            <Color x:Key="SystemAccentColorLight2">#8CC5FF</Color>
+            <Color x:Key="SystemAccentColorLight3">#ADD6FF</Color>
+
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Dark">
+                    <!-- TextBox controls -->
+                    <SolidColorBrush x:Key="TextControlBackground" Color="#1F2732"/>
+                    <SolidColorBrush x:Key="TextControlBackgroundPointerOver" Color="#232B36"/>
+                    <SolidColorBrush x:Key="TextControlBackgroundFocused" Color="#1F2732"/>
+                    <SolidColorBrush x:Key="TextControlBorderBrush" Color="#3A4656"/>
+                    <SolidColorBrush x:Key="TextControlBorderBrushPointerOver" Color="#4A5A6E"/>
+                    <SolidColorBrush x:Key="TextControlForeground" Color="#E6EDF3"/>
+                    <SolidColorBrush x:Key="TextControlPlaceholderForeground" Color="#7C8896"/>
+
+                    <!-- Default buttons (neutral/secondary) -->
+                    <SolidColorBrush x:Key="ButtonBackground" Color="#2A3441"/>
+                    <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="#344150"/>
+                    <SolidColorBrush x:Key="ButtonBackgroundPressed" Color="#3E4C5E"/>
+                    <SolidColorBrush x:Key="ButtonBorderBrush" Color="#344150"/>
+                    <SolidColorBrush x:Key="ButtonForeground" Color="#E6EDF3"/>
+                    <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="#E6EDF3"/>
+                    <SolidColorBrush x:Key="ButtonForegroundPressed" Color="#E6EDF3"/>
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+
     <Application.Styles>
         <FluentTheme />
+
+        <!-- Global font family and size -->
+        <Style Selector="Window">
+            <Setter Property="FontFamily" Value="Inter, SF Pro Text, Segoe UI, Helvetica Neue, sans-serif"/>
+            <Setter Property="FontSize" Value="14"/>
+        </Style>
+
+        <!-- TextBox: rounded corners, editorial padding -->
+        <Style Selector="TextBox">
+            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="Padding" Value="10,8"/>
+        </Style>
+
+        <!-- Button: rounded corners -->
+        <Style Selector="Button">
+            <Setter Property="CornerRadius" Value="8"/>
+        </Style>
+
+        <!-- TextBlock: soft white, no pure white -->
+        <Style Selector="TextBlock">
+            <Setter Property="Foreground" Value="#E6EDF3"/>
+        </Style>
+
+        <!-- RadioButton: consistent text color -->
+        <Style Selector="RadioButton">
+            <Setter Property="Foreground" Value="#E6EDF3"/>
+        </Style>
     </Application.Styles>
 </Application>
