@@ -97,3 +97,7 @@ dotnet run --project SureVibe.App
 
 - .NET 10 SDK
 - macOS, Windows, or Linux
+
+## Philosophy (Short Version)
+AI should not guess what you mean.
+It should execute what you decided.
