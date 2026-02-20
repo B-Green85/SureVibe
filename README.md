@@ -92,6 +92,10 @@ SureVibe does not remove thinking — it **preserves it**.
 ```bash
 dotnet run --project SureVibe.App
 ```
+Windows (PowerShell)
+```powershell
+dotnet run --project .\SureVibe.App
+```
 
 ## Requirements
 
@@ -106,4 +110,5 @@ It should execute what you decided.
 ## Screenshot
 <p align="center">
   <img src="SureVibe.App/Assets/SureVibe_demo_screenshot.png" width="800"/>
+
 </p>
