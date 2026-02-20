@@ -35,7 +35,7 @@ This lets AI agents show their **engineering capability**, not their guesswork �
 
 - Developers using AI tools who want **deterministic outcomes**, not vibes
 - “Vibe coders” who want a bridge from intuition to structure
-- Senior engineers and “oldheads” who distrust AI unless it is **constrained**
+- Senior engineers and anyone who distrust AI unless it is **constrained**
 - Anyone who believes:
   > *AI should execute instructions, not invent them*
 
@@ -101,3 +101,4 @@ dotnet run --project SureVibe.App
 ## Philosophy (Short Version)
 AI should not guess what you mean.
 It should execute what you decided.
+
