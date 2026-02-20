@@ -102,3 +102,8 @@ dotnet run --project SureVibe.App
 AI should not guess what you mean.
 It should execute what you decided.
 
+
+## Screenshot
+<p align="center">
+  <img src="SureVibe.App/Assets/SureVibe_demo_screenshot.png" width="800"/>
+</p>
